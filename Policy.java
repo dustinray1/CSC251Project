@@ -1,15 +1,16 @@
 public class Policy {
 
-    // variables
+    // Variables
     private String policyNumber;
     private String providerName;
     private String policyholderFirstName;
     private String policyholderLastName;
     private int policyholderAge;
     private String policyholderSmokingStatus;
-    private int policyholderHeightInches;
-    private int policyholderWeightPounds;
+    private double policyholderHeightInches;
+    private double policyholderWeightPounds;
 
+    // No-arg constructor
     public Policy() {
         this.policyNumber = "";
         this.providerName = "";
@@ -17,18 +18,19 @@ public class Policy {
         this.policyholderLastName = "";
         this.policyholderAge = 0;
         this.policyholderSmokingStatus = "non-smoker";
-        this.policyholderHeightInches = 0;
-        this.policyholderWeightPounds = 0;
+        this.policyholderHeightInches = 0.0;
+        this.policyholderWeightPounds = 0.0;
     }
 
+    // Full constructor
     public Policy(String policyNumber,
                   String providerName,
                   String policyholderFirstName,
                   String policyholderLastName,
                   int policyholderAge,
                   String policyholderSmokingStatus,
-                  int policyholderHeightInches,
-                  int policyholderWeightPounds) {
+                  double policyholderHeightInches,
+                  double policyholderWeightPounds) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyholderFirstName = policyholderFirstName;
@@ -38,16 +40,18 @@ public class Policy {
         this.policyholderHeightInches = policyholderHeightInches;
         this.policyholderWeightPounds = policyholderWeightPounds;
     }
-    // getters
+
+    // Getters
     public String getPolicyNumber() { return policyNumber; }
     public String getProviderName() { return providerName; }
     public String getPolicyholderFirstName() { return policyholderFirstName; }
     public String getPolicyholderLastName() { return policyholderLastName; }
     public int getPolicyholderAge() { return policyholderAge; }
     public String getPolicyholderSmokingStatus() { return policyholderSmokingStatus; }
-    public int getPolicyholderHeightInches() { return policyholderHeightInches; }
-    public int getPolicyholderWeightPounds() { return policyholderWeightPounds; }
-    // setters
+    public double getPolicyholderHeightInches() { return policyholderHeightInches; }
+    public double getPolicyholderWeightPounds() { return policyholderWeightPounds; }
+
+    // Setters
     public void setPolicyNumber(String policyNumber) { this.policyNumber = policyNumber; }
     public void setProviderName(String providerName) { this.providerName = providerName; }
     public void setPolicyholderFirstName(String firstName) { this.policyholderFirstName = firstName; }
@@ -67,9 +71,10 @@ public class Policy {
         }
     }
 
-    public void setPolicyholderHeightInches(int heightInches) { this.policyholderHeightInches = heightInches; }
-    public void setPolicyholderWeightPounds(int weightPounds) { this.policyholderWeightPounds = weightPounds; }
+    public void setPolicyholderHeightInches(double heightInches) { this.policyholderHeightInches = heightInches; }
+    public void setPolicyholderWeightPounds(double weightPounds) { this.policyholderWeightPounds = weightPounds; }
 
+    // BMI calculation
     public double getBMI() {
         if (policyholderHeightInches <= 0) {
             return 0.0;
@@ -78,6 +83,7 @@ public class Policy {
                 (policyholderHeightInches * policyholderHeightInches);
     }
 
+    // Price calculation
     public double calculatePrice() {
         double price = 600.0;
         if (policyholderAge > 50) {
