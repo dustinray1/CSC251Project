@@ -1,11 +1,13 @@
-import java.io.File; 
-import java.util.Scanner; 
-import java.util.ArrayList; 
-import java.util.List; 
+import java.io.File;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Project_dustin_ray {
     public static void main(String[] args) {
         List<Policy> policies = new ArrayList<>();  // To store all policy objects
+        int smokerCount = 0;  // Counter for smokers
+        int nonSmokerCount = 0;  // Counter for non-smokers
         
         // Read the file
         Scanner fileScanner = null;
@@ -34,9 +36,15 @@ public class Project_dustin_ray {
                         weight
                 );
                 policies.add(policy);
+                
+                // Count smokers and non-smokers
+                if (smokingStatus.equalsIgnoreCase("smoker")) {
+                    smokerCount++;
+                } else {
+                    nonSmokerCount++;
+                }
             }
         } catch (Exception e) {
-            // If the file is not found or any error occurs, print the message and return
             System.out.println("Error occurred while reading the file.");
             return; // Exit if the file cannot be read
         } finally {
@@ -59,5 +67,10 @@ public class Project_dustin_ray {
             System.out.printf("Policyholder’s BMI: %.2f\n", policy.getBMI());
             System.out.printf("Policy Price: $%.2f\n", policy.calculatePrice());
         }
+
+        // Display the counts for smokers and non-smokers
+        System.out.println();
+        System.out.println("The number of policies with a smoker is: " + smokerCount);
+        System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
     }
 }
