@@ -138,4 +138,23 @@ public class PolicyHolder {
             }
         }
     }
+    
+    
+    /**
+     * Returns a string representation of the PolicyHolder object.
+     * This will include the first name, last name, age, smoking status, height, and weight.
+     *
+     * @return a string representation of the PolicyHolder
+     */
+    @Override
+    public String toString() {
+        return "PolicyHolder {" +
+                "First Name='" + policyholderFirstName + '\'' +
+                ", Last Name='" + policyholderLastName + '\'' +
+                ", Age=" + policyholderAge +
+                ", Smoking Status='" + policyholderSmokingStatus + '\'' +
+                ", Height=" + policyholderHeightInches + " inches" +
+                ", Weight=" + policyholderWeightPounds + " pounds" +
+                '}';
+}
 }
