@@ -42,4 +42,20 @@ public class Policy {
         }
         return price;
     }
+    
+    /**
+     * Returns a string representation of the Policy object.
+     * This will include the policy number, provider name, and policyholder details.
+     *
+     * @return a string representation of the Policy
+     */
+    @Override
+    public String toString() {
+        return "Policy {" +
+                "Policy Number='" + policyNumber + '\'' +
+                ", Provider Name='" + providerName + '\'' +
+                ", Policyholder=" + policyholder.toString() +
+                '}';
+}
+
 }
