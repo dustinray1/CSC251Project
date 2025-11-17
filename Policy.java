@@ -1,5 +1,7 @@
 public class Policy {
 
+   private static int policyCount = 0;
+
     // Variable fields
     private String policyNumber;
     private String providerName;
@@ -17,6 +19,17 @@ public class Policy {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyholder = policyholder;
+        
+        policyCount++;
+    }
+    
+     /**
+     * Gets the total number of Policy objects created.
+     *
+     * @return the total number of Policy objects created
+     */
+    public static int getPolicyCount() {
+        return policyCount;
     }
 
     /**
