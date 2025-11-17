@@ -5,16 +5,14 @@ import java.util.List;
 
 public class Project_dustin_ray {
     public static void main(String[] args) {
-        List<Policy> policies = new ArrayList<>();  // To store all policy objects
-        int smokerCount = 0;  // Counter for smokers
-        int nonSmokerCount = 0;  // Counter for non-smokers
+        List<Policy> policies = new ArrayList<>();  
+        int smokerCount = 0; 
+        int nonSmokerCount = 0;  
         
-        // Read the file
         Scanner fileScanner = null;
         try {
             fileScanner = new Scanner(new File("PolicyInformation.txt"));
             while (fileScanner.hasNextLine()) {
-                // Read each line and extract the required details
                 String policyNumber = fileScanner.nextLine();
                 String providerName = fileScanner.nextLine();
                 String firstName = fileScanner.nextLine();
@@ -24,7 +22,7 @@ public class Project_dustin_ray {
                 double height = Double.parseDouble(fileScanner.nextLine());
                 double weight = Double.parseDouble(fileScanner.nextLine());
 
-                // Create a Policy object and add it to the list
+                
                 Policy policy = new Policy(
                         policyNumber,
                         providerName,
@@ -37,7 +35,7 @@ public class Project_dustin_ray {
                 );
                 policies.add(policy);
                 
-                // Count smokers and non-smokers
+                
                 if (smokingStatus.equalsIgnoreCase("smoker")) {
                     smokerCount++;
                 } else {
@@ -46,30 +44,22 @@ public class Project_dustin_ray {
             }
         } catch (Exception e) {
             System.out.println("Error occurred while reading the file.");
-            return; // Exit if the file cannot be read
+            return; 
         } finally {
             if (fileScanner != null) {
-                fileScanner.close(); // Close the scanner after use
+                fileScanner.close(); 
             }
         }
 
-        // Process and print out all policies
+        
         for (Policy policy : policies) {
-            System.out.println();
-            System.out.println("Policy Number: " + policy.getPolicyNumber());
-            System.out.println("Provider Name: " + policy.getProviderName());
-            System.out.println("Policyholder’s First Name: " + policy.getPolicyholderFirstName());
-            System.out.println("Policyholder’s Last Name: " + policy.getPolicyholderLastName());
-            System.out.println("Policyholder’s Age: " + policy.getPolicyholderAge());
-            System.out.println("Policyholder’s Smoking Status: " + policy.getPolicyholderSmokingStatus());
-            System.out.println("Policyholder’s Height: " + policy.getPolicyholderHeightInches() + " inches");
-            System.out.println("Policyholder’s Weight: " + policy.getPolicyholderWeightPounds() + " pounds");
-            System.out.printf("Policyholder’s BMI: %.2f\n", policy.getBMI());
-            System.out.printf("Policy Price: $%.2f\n", policy.calculatePrice());
+            System.out.println(policy); 
         }
 
-        // Display the counts for smokers and non-smokers
-        System.out.println();
+        
+        System.out.println("Total number of Policy objects created: " + Policy.getPolicyCount());
+
+        
         System.out.println("The number of policies with a smoker is: " + smokerCount);
         System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
     }
